@@ -272,8 +272,7 @@ text += " = " + format(subtotal) + "\n"
 text += "\nTotal: " + format(total)
 
 // ✅ WAJIB ENCODE
-const url = "https://wa.me/6282134566290" + adminWA + "?text=" + encodeURIComponent(text)
-
+const url = "https://wa.me/" + adminWA + "?text=" + encodeURIComponent(text)
 // ✅ OPEN WA
 window.location.href = url
 }
