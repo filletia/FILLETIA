@@ -4,88 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Filletia | Ikan Fillet Premium</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 font-family:'Poppins',sans-serif;
 margin:0;
-background:#f7f7f7;
-color:#222;
+background:#f5f5f5;
+color:#333;
 }
 
 .container{
-max-width:1100px;
+max-width:900px;
 margin:auto;
-padding:30px 20px;
+padding:20px;
 }
 
 h2{
 margin-bottom:20px;
 }
 
-/* GRID PRODUK */
+/* CARD PRODUK */
 
-.product-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+.product-item{
+display:flex;
 gap:20px;
-}
-
-.product{
 background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-transition:.3s;
+padding:15px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+margin-bottom:20px;
+align-items:center;
 }
 
-.product:hover{
-transform:translateY(-5px);
+.product-image img{
+width:200px;
+border-radius:10px;
 }
-
-.product img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-/* INFO PRODUK */
 
 .product-info{
-padding:15px;
+flex:1;
 }
 
-.product-title{
-font-weight:600;
-font-size:17px;
+.product-info h3{
+margin:0;
 }
 
 .price{
 color:#ff6b35;
 font-weight:600;
-margin-top:5px;
+margin:8px 0;
 }
-
-/* SELECT BUMBU */
 
 select{
 width:100%;
-padding:7px;
-margin-top:8px;
+padding:8px;
 border-radius:6px;
 border:1px solid #ddd;
 }
 
-/* BUTTON QTY */
+/* QTY BUTTON */
 
 .qty-control{
-display:flex;
-align-items:center;
 margin-top:10px;
+display:flex;
 gap:10px;
 }
 
@@ -97,30 +81,27 @@ width:30px;
 height:30px;
 border-radius:6px;
 cursor:pointer;
-font-size:16px;
 }
 
 /* CART */
 
 .cart{
-margin-top:40px;
 background:white;
 padding:20px;
-border-radius:15px;
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
+border-radius:12px;
+margin-top:30px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 .cart-item{
 display:flex;
 justify-content:space-between;
 margin-bottom:10px;
-font-size:14px;
 }
 
 .total{
-margin-top:15px;
-font-weight:700;
-font-size:18px;
+font-weight:600;
+margin-top:10px;
 }
 
 /* BUTTON WA */
@@ -128,34 +109,43 @@ font-size:18px;
 .checkout{
 margin-top:15px;
 width:100%;
-padding:14px;
+padding:12px;
 background:#25D366;
-color:white;
 border:none;
+color:white;
 font-size:16px;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
-}
-
-.checkout:hover{
-opacity:.9;
 }
 
 /* INSTAGRAM */
 
 .social{
 text-align:center;
-margin-top:40px;
+margin-top:30px;
 }
 
 .ig-btn{
-display:inline-block;
-padding:12px 25px;
 background:#E1306C;
 color:white;
+padding:10px 20px;
+border-radius:8px;
 text-decoration:none;
-border-radius:10px;
-font-weight:600;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+.product-item{
+flex-direction:column;
+text-align:left;
+}
+
+.product-image img{
+width:100%;
+}
+
 }
 
 </style>
@@ -167,24 +157,25 @@ font-weight:600;
 
 <h2>Pilih Produk</h2>
 
-<div class="product-grid" id="products"></div>
+<div id="products"></div>
 
 <div class="cart">
 
-<h2>Keranjang</h2>
+<h3>Keranjang</h3>
 
-<div id="cart-list"></div>
+<div id="cart-list">Keranjang kosong</div>
 
 <div class="total" id="total">Total: Rp 0</div>
 
 <button class="checkout" onclick="checkoutWA()">
-Pesan ke Admin (WhatsApp)
+Pesan ke WhatsApp
 </button>
 
 </div>
 
 <div class="social">
-<a class="ig-btn" target="_blank" href="https://www.instagram.com/filletia.purwokerto?igsh=MWIxOHJucmZ1c213bA==">
+<a class="ig-btn" target="_blank"
+href="https://www.instagram.com/filletia.purwokerto?igsh=MWIxOHJucmZ1c213bA==">
 Instagram Filletia
 </a>
 </div>
@@ -196,30 +187,10 @@ Instagram Filletia
 const adminWA="6281234567890"
 
 const products=[
-{
-id:1,
-name:"Fillet Nila",
-price:25000,
-img:"nila.jpg"
-},
-{
-id:2,
-name:"Fillet Gurame",
-price:35000,
-img:"gurame.jpg"
-},
-{
-id:3,
-name:"Fillet Kakap",
-price:40000,
-img:"kakap.jpg"
-},
-{
-id:4,
-name:"Fillet Kembung",
-price:20000,
-img:"kembung.jpg"
-}
+{ id:1,name:"Fillet Nila",price:25000,img:"nila.jpg"},
+{ id:2,name:"Fillet Gurame",price:35000,img:"gurame.jpg"},
+{ id:3,name:"Fillet Kakap",price:40000,img:"kakap.jpg"},
+{ id:4,name:"Fillet Kembung",price:20000,img:"kembung.jpg"}
 ]
 
 let cart=[]
@@ -234,28 +205,28 @@ const el=document.getElementById("products")
 
 el.innerHTML=products.map(p=>`
 
-<div class="product">
+<div class="product-item">
 
+<div class="product-image">
 <img src="${p.img}">
+</div>
 
 <div class="product-info">
 
-<div class="product-title">${p.name}</div>
+<h3>${p.name}</h3>
 
 <div class="price">${format(p.price)}</div>
 
 <select id="bumbu-${p.id}">
-<option value="Bumbu Marinasi">Bumbu Marinasi</option>
-<option value="Bumbu Bakar">Bumbu Bakar</option>
-<option value="Bumbu Pepes">Bumbu Pepes</option>
-<option value="Bumbu Kuah Kuning">Bumbu Kuah Kuning</option>
+<option>Bumbu Marinasi</option>
+<option>Bumbu Bakar</option>
+<option>Bumbu Pepes</option>
+<option>Bumbu Kuah Kuning</option>
 </select>
 
 <div class="qty-control">
-
 <button class="qty-btn" onclick="addCart(${p.id})">+</button>
 <button class="qty-btn" onclick="removeCart(${p.id})">-</button>
-
 </div>
 
 </div>
@@ -304,7 +275,7 @@ function renderCart(){
 const list=document.getElementById("cart-list")
 
 if(cart.length===0){
-list.innerHTML="Keranjang masih kosong"
+list.innerHTML="Keranjang kosong"
 document.getElementById("total").innerText="Total: Rp 0"
 return
 }
@@ -317,15 +288,10 @@ const subtotal=i.price*i.qty
 total+=subtotal
 
 return`
-
 <div class="cart-item">
-
 <div>${i.name} (${i.bumbu}) x${i.qty}</div>
-
 <div>${format(subtotal)}</div>
-
 </div>
-
 `
 
 }).join("")
