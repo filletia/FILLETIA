@@ -29,7 +29,6 @@
       min-height: 100vh;
     }
 
-    /* ─── HERO ─────────────────────────── */
     .hero {
       background: var(--orange);
       padding: 3rem 1.5rem 2rem;
@@ -89,9 +88,7 @@
       transform: scaleX(-1);
     }
 
-    /* ─── LAYOUT ─────────────────────────── */
     .container { max-width: 480px; margin: 0 auto; padding: 0 1.25rem 3rem; }
-
     .section { margin-top: 2rem; }
     .section-label {
       font-size: 11px;
@@ -102,7 +99,6 @@
       margin-bottom: 14px;
     }
 
-    /* ─── PRODUCTS ─────────────────────────── */
     .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .product-card {
       background: var(--card);
@@ -139,7 +135,6 @@
     .spice-pill:hover { border-color: var(--orange); color: var(--orange); }
     .spice-pill.active { background: var(--orange); border-color: var(--orange); color: white; }
 
-    /* ─── AI CARD ─────────────────────────── */
     .ai-card {
       background: var(--text);
       border-radius: var(--radius-md);
@@ -160,7 +155,6 @@
     .ai-text { font-size: 13px; color: white; }
     .ai-text span { color: var(--orange); font-weight: 500; }
 
-    /* ─── CART ─────────────────────────── */
     .cart-item {
       display: flex;
       justify-content: space-between;
@@ -190,7 +184,6 @@
     .cart-total-label { font-size: 12px; color: var(--muted); }
     .cart-total-value { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--orange); }
 
-    /* ─── BUTTONS ─────────────────────────── */
     .btn-row { display: flex; gap: 10px; }
     .btn-primary {
       flex: 1;
@@ -222,7 +215,6 @@
     }
     .btn-outline:hover { background: var(--orange-pale); }
 
-    /* ─── REVIEW ─────────────────────────── */
     .input-field {
       width: 100%;
       border: 1px solid var(--border);
@@ -258,7 +250,6 @@
     .review-stars { font-size: 12px; color: var(--orange); }
     .review-text { font-size: 13px; color: var(--text); line-height: 1.5; }
 
-    /* ─── TOAST ─────────────────────────── */
     .toast {
       position: fixed;
       bottom: 28px; left: 50%;
@@ -280,7 +271,6 @@
 </head>
 <body>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-tag">✦ fresh daily</div>
     <h1>Filletia</h1>
@@ -290,13 +280,11 @@
 
   <div class="container">
 
-    <!-- PRODUCTS -->
     <div class="section">
       <p class="section-label">Pilih produkmu</p>
       <div class="product-grid" id="product-grid"></div>
     </div>
 
-    <!-- AI RECOMMENDATION -->
     <div class="section">
       <div class="ai-card">
         <div class="ai-dot">✦</div>
@@ -307,13 +295,11 @@
       </div>
     </div>
 
-    <!-- CART -->
     <div class="section">
       <p class="section-label">Keranjang</p>
       <div id="cart-list"></div>
     </div>
 
-    <!-- ORDER BUTTONS -->
     <div class="section">
       <div class="btn-row">
         <button class="btn-primary" onclick="showToast('Delivery order disiapkan! 🛵')">Delivery Order</button>
@@ -321,7 +307,6 @@
       </div>
     </div>
 
-    <!-- REVIEW -->
     <div class="section">
       <p class="section-label">Kasih review dong</p>
       <div class="star-row" id="star-row">
