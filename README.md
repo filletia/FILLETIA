@@ -336,7 +336,7 @@ total+=i.price*i.qty
 
 text+=`%0A%0ATotal: ${format(total)}`
 
-const url=`https://wa.me/${adminWA}?text=${text}`
+const url=`https://wa.me/6282134566290`
 
 window.open(url,"_blank")
 
