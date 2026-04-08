@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -348,5 +347,3 @@ renderProducts()
 </script>
 
 </body>
-</html>
-```
