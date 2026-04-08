@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -182,19 +182,19 @@ img:"https://images.unsplash.com/photo-1604908176997-4316d1b9a5b4"
 id:2,
 name:"Fillet Gurame",
 price:35000,
-img:"https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62"
+img:"filletGurame.jgp"
 },
 {
 id:3,
 name:"Fillet Kakap",
 price:40000,
-img:"https://images.unsplash.com/photo-1553621042-f6e147245754"
+img:"Filletkapap.jpg"
 },
 {
 id:4,
 name:"Fillet Kembung",
 price:20000,
-img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+img:"Filletkembung.jpg"
 }
 ]
 
